@@ -23,6 +23,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.createProduct(productDTO));
     }
 
+    @GetMapping("/searchProducts/{keyword}")
+    public ResponseEntity<List<ProductDto>> searchProducts(@PathVariable String keyword){
+        return new ResponseEntity<>(productService.searchProducts(keyword),HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         return new ResponseEntity<>(this.productService.getAllProducts(),HttpStatus.OK);
