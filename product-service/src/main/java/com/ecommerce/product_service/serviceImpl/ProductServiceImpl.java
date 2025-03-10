@@ -41,6 +41,12 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Override
+    public List<ProductDto> searchProducts(String keyword) {
+        List<ProductEntity> products = productRepository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword,keyword);
+        return products.stream().map(this::entityToDTO).collect(Collectors.toList());
+    }
+
     // 🔹 Convert Entity to DTO
     private ProductDto entityToDTO(ProductEntity product) {
 
