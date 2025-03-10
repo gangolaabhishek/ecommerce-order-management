@@ -5,11 +5,13 @@ import com.ecommerce.product_service.entity.ProductEntity;
 import com.ecommerce.product_service.repository.ProductRepository;
 import com.ecommerce.product_service.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
@@ -41,23 +43,28 @@ public class ProductServiceImpl implements ProductService {
 
     // 🔹 Convert Entity to DTO
     private ProductDto entityToDTO(ProductEntity product) {
-        return ProductDto.builder()
-                .id(product.getId())
-                .name(product.getName())
-                .description(product.getDescription())
-                .price(product.getPrice())
-                .quantity(product.getQuantity())
-                .build();
+
+        return new ProductDto(product.getId(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getQuantity());
     }
 
     // 🔹 Convert DTO to Entity
     private ProductEntity dtoToEntity(ProductDto productDTO) {
-        return ProductEntity.builder()
-                .id(productDTO.getId())
-                .name(productDTO.getName())
-                .description(productDTO.getDescription())
-                .price(productDTO.getPrice())
-                .quantity(productDTO.getQuantity())
-                .build();
+        return new ProductEntity(productDTO.getId(),
+                productDTO.getName(),
+                productDTO.getDescription(),
+                productDTO.getPrice(),
+                productDTO.getQuantity());
+
+//        return ProductEntity.builder()
+//                .id(productDTO.getId())
+//                .name(productDTO.getName())
+//                .description(productDTO.getDescription())
+//                .price(productDTO.getPrice())
+//                .quantity(productDTO.getQuantity())
+//                .build();
     }
 }
