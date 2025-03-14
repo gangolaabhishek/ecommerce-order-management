@@ -4,6 +4,7 @@ package com.ecommerce.order_service.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,7 +31,7 @@ public class OrderEntity {
         this.userId = userId;
         this.productId = productId;
         this.quantity = quantity;
-        this.totalPrice = totalPrice;
+        this.totalPrice = (totalPrice);
         this.orderDate = orderDate;
     }
 
