@@ -2,6 +2,8 @@ package com.ecommerce.order_service.controller;
 
 
 import com.ecommerce.order_service.DTO.OrderDto;
+import com.ecommerce.order_service.DTO.OrderRequest;
+import com.ecommerce.order_service.entity.OrderEntity;
 import com.ecommerce.order_service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,11 @@ public class OrderController {
     @PostMapping("/place")
     public ResponseEntity<OrderDto> placeOrder(@RequestBody OrderDto orderDto){
         return new ResponseEntity<>(orderService.placeOrder(orderDto), HttpStatus.CREATED);
+    }
+
+    @PostMapping
+    public ResponseEntity<OrderEntity> placeOrder(@RequestBody OrderRequest orderRequest){
+        return new ResponseEntity<>(orderService.placeOrder(orderRequest),HttpStatus.CREATED);
     }
 
     @GetMapping("/id/{id}")
