@@ -1,25 +1,20 @@
-package com.ecommerce.payment_service.entity;
-
-import jakarta.persistence.*;
+package com.ecommerce.payment_service.dto;
 
 
-@Entity
-@Table(name = "payments")
-public class PaymentEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PaymentDto {
+
     private Long id;
     private Long orderId;
     private String paymentStatus;
     private String paymentMethod;
     private double amount;
 
-    public PaymentEntity(){
+    public PaymentDto(){
 
     }
 
-    public PaymentEntity(Long id, Long orderId, String paymentStatus, String paymentMethod, double amount) {
+    public PaymentDto(Long id, Long orderId, String paymentStatus, String paymentMethod, double amount) {
         this.id = id;
         this.orderId = orderId;
         this.paymentStatus = paymentStatus;
