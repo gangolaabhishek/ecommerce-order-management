@@ -11,6 +11,4 @@ public interface PaymentService {
     PaymentDto processPayment(PaymentDto payment);
     PaymentDto getPaymentDetailsByOrderId(Long orderId);
     Optional<PaymentEntity> getPaymentDetailsById(Long id);
-
-
 }
