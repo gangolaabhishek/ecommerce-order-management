@@ -17,6 +17,9 @@ public class ProductDto {
     private double price;
     private int quantity;
 
+    public ProductDto(long id, String name, double price) {
+    }
+
     public Long getId() {
         return id;
     }

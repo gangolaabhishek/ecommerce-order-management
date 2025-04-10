@@ -5,12 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class OrderRequest {
     private Long productId;
     private Long userId;
     private int quantity;
+
+    public OrderRequest(){
+
+    }
+
+    public OrderRequest(Long productId, Long userId, int quantity) {
+        this.productId = productId;
+        this.userId = userId;
+        this.quantity = quantity;
+    }
 
     public Long getProductId() {
         return productId;

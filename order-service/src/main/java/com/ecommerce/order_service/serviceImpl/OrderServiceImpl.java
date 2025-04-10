@@ -25,7 +25,6 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private RestTemplate restTemplate;
 
-
     @Override
     public OrderDto placeOrder(OrderDto orderDto) {
         OrderEntity orderEntity = dtoToEntity(orderDto);
