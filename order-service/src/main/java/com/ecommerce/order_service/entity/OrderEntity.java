@@ -35,6 +35,9 @@ public class OrderEntity {
         this.orderDate = orderDate;
     }
 
+    public OrderEntity(long id, long userId, long productId, int quantity, double totalPrice, String pending) {
+    }
+
     public Long getId() {
         return id;
     }
