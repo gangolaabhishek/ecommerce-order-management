@@ -14,13 +14,34 @@ public class ProductDto {
     private String description;
     private double price;
     private int quantity;
+    private int stock;
 
-    public ProductDto(Long id, String name, String description, double price, int quantity) {
+    @Override
+    public String toString() {
+        return "ProductDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
+
+    public ProductDto(Long id, String name, String description, double price, int quantity,int stock) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.stock=stock;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public Long getId() {

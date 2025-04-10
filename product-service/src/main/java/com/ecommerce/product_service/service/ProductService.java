@@ -11,9 +11,11 @@ public interface ProductService {
 
     ProductDto createProduct(ProductDto productDto);
     List<ProductDto> getAllProducts();
-    Optional<ProductDto> getProductById(Long id);
+    ProductDto getProductById(Long id);
     void deleteProduct(Long id);
 
     List<ProductDto> searchProducts(String keyword);
+
+    public void reduceStock(Long productId, int quantity);
 
 }

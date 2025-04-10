@@ -19,15 +19,25 @@ public class ProductEntity {
     private String description;
     private double price;
     private int quantity;
+    private int stock;
 
     public ProductEntity() {}
 
-    public ProductEntity(Long id, String name, String description, double price, int quantity) {
+    public ProductEntity(Long id, String name, String description, double price, int quantity,int stock) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.stock=stock;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public Long getId() {

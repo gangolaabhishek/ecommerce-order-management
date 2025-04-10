@@ -3,7 +3,6 @@ package com.ecommerce.user_service.globalexception;
 import com.ecommerce.user_service.customexception.DuplicateUserException;
 import com.ecommerce.user_service.customexception.ErrorResponse;
 import com.ecommerce.user_service.customexception.UserNotFoundException;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
