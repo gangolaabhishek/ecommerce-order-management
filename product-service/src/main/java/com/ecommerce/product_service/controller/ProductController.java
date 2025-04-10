@@ -18,9 +18,17 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    //To create new product
     @PostMapping
     public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDTO) {
         return ResponseEntity.ok(productService.createProduct(productDTO));
+    }
+
+    //This is to reduce the stock
+    @PostMapping("/{id}/reduce-stock")
+    public ResponseEntity<String> reduceStock(@PathVariable Long id, @RequestParam int quantity) {
+        productService.reduceStock(id, quantity);
+        return ResponseEntity.ok("Stock reduced successfully.");
     }
 
     @GetMapping("/searchProducts/{keyword}")
@@ -34,8 +42,8 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<ProductDto>> getProductById(@PathVariable Long id) {
-        Optional<ProductDto> productDTO = productService.getProductById(id);
+    public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) {
+        ProductDto productDTO = productService.getProductById(id);
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
