@@ -8,6 +8,7 @@ import com.ecommerce.user_service.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
@@ -35,9 +36,14 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public Optional<User> getUserById(Long id) {
+    public User getUserById(Long id) {
 //        return  userRepository.findById(id);
-        return Optional.ofNullable(userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("No user with provided id")));
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("No user with provided id"));
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return  userRepository.findAll();
     }
 
 
