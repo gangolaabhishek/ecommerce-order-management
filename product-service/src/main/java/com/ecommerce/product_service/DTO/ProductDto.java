@@ -16,6 +16,14 @@ public class ProductDto {
     private int quantity;
     private int stock;
 
+    public ProductDto(Long id, String name, String description, double price, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "ProductDto{" +
