@@ -85,4 +85,12 @@ public class UserControllerTest {
         assertEquals(2,result.size());
         verify(userRepository,times(1)).findAll();
     }
+
+    @Test
+    void testDeleteUserById(){
+        doNothing().when(userRepository).deleteById(1L);
+
+        service.deleteUser(1L);
+        verify(userRepository,times(1)).deleteById(1L);
+    }
 }
