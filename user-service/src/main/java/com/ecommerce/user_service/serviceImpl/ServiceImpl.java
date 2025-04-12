@@ -46,5 +46,10 @@ public class ServiceImpl implements Service {
         return  userRepository.findAll();
     }
 
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
 
 }
