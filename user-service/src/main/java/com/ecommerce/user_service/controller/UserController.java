@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,13 +25,18 @@ public class UserController {
         return new ResponseEntity<>(res, HttpStatus.CREATED);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getAllUser(){
+        return new ResponseEntity<>(service.getAllUser(),HttpStatus.OK);
+    }
+
     @GetMapping("/email/{email}")
     public ResponseEntity<Optional<User>> getUserByEmail(@PathVariable String email){
         return new ResponseEntity<>(this.service.getUserByEmail(email),HttpStatus.OK);
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id){
+    public ResponseEntity<User> getUserById(@PathVariable Long id){
         return new ResponseEntity<>(this.service.getUserById(id), HttpStatus.OK);
     }
 }
